@@ -7,14 +7,11 @@ const Map = ({ location }) => {
     googleMapsApiKey: process.env.googlePlacesAPI,
   })
 
-  console.log("location.lat", location.lat)
-  console.log("location.lat", location.lat)
   const containerStyle = {
     width: "100%",
     height: "400px",
   }
 
-  console.log(location.lat)
   const center = {
     lat: location.lat,
     lng: location.lng,
@@ -22,13 +19,13 @@ const Map = ({ location }) => {
 
   const [map, setMap] = React.useState(null)
 
-  const onLoad = React.useCallback(function callback(map) {
+  const onLoad = React.useCallback(function callback(mapInstance) {
     const bounds = new window.google.maps.LatLngBounds()
-    map.fitBounds(bounds)
-    setMap(map)
+    mapInstance.fitBounds(bounds)
+    setMap(mapInstance)
   }, [])
 
-  const onUnmount = React.useCallback(function callback(map) {
+  const onUnmount = React.useCallback(function callback() {
     setMap(null)
   }, [])
 
@@ -44,13 +41,13 @@ const Map = ({ location }) => {
       onUnmount={onUnmount}
     >
       <Marker
+        key="location-marker"
         position={{ lat: location.lat, lng: location.lng }}
         icon={{
           url: image,
           anchor: new google.maps.Point(5, 58),
         }}
       />
-      <></>
     </GoogleMap>
   ) : (
     <></>
