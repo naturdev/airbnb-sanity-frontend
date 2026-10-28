@@ -12,6 +12,7 @@ const Review = ({ review }) => {
           .height(50)
           .crop("focalpoint")
           .auto("format")}
+        alt={`${review.traveller.name} profile picture`}
       />
     </div>
   )
