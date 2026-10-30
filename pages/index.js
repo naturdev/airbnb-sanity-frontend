@@ -4,7 +4,6 @@ import { isMultiple } from "../utils"
 import DashboardMap from "../components/DashboardMap"
 
 const Home = ({ properties }) => {
-  console.log(properties)
   return (
     <>
       {properties && (

@@ -20,7 +20,6 @@ const Property = ({
 }) => {
   const reviewAmount = reviews.length
 
-  console.log(images)
   return (
     <div className="container">
       <h1>
