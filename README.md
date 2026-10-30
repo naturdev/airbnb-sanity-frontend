@@ -1,5 +1,22 @@
 # AirBnb Sanity.io Frontend
 
+## ✨ New Feature: Server-Side Pagination
+
+This fork adds **server-side pagination** to the property listings! Properties are now displayed 9 per page with smart navigation controls. See [PAGINATION.md](PAGINATION.md) for full details.
+
+**Key Features:**
+- 🔢 9 properties per page for better performance
+- 🔗 Bookmarkable URLs (e.g., `/?page=2`)
+- 🎯 Smart page navigation with ellipsis
+- 🗺️ Map continues to show all properties
+- 📊 Results counter showing current range
+
+**Quick Links:**
+- [Implementation Details](PAGINATION.md)
+- [Visual Examples](PAGINATION_VISUAL.md)
+- [Quick Reference](QUICK_REFERENCE.md)
+
+---
 
 This repository is to support my tutorial on how to build an AirBnb Clone with structured content using Sanity.io and Next.js. View the full tutorial [here](https://youtu.be/mx1dbMzd3tU) 📺
 
