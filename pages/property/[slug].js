@@ -29,10 +29,10 @@ const Property = ({
         {reviewAmount} review{isMultiple(reviewAmount)}
       </p>
       <div className="images-section">
-        <Image identifier="main-image" image={mainImage} />
+        <Image identifier="main-image" image={mainImage} alt={title} />
         <div className="sub-images-section">
           {images.map(({ _key, asset }, image) => (
-            <Image key={_key} identifier="image" image={asset} />
+            <Image key={_key} identifier="image" image={asset} alt={`${title} - additional image`} />
           ))}
         </div>
       </div>
