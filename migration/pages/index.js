@@ -1,6 +1,6 @@
 import { sanityClient, urlFor } from "../sanity"
 import Link from "next/link"
-import { isMultiple } from "../utils"
+import { isMultiple } from "../../utils"
 import DashboardMap from "../components/DashboardMap"
 
 const Home = ({ properties }) => {
