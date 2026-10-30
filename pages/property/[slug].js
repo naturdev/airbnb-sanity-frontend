@@ -131,14 +131,16 @@ export const getServerSideProps = async (pageContext) => {
     }
   }`
 
-  const property = await sanityClient.fetch(query, { pageSlug })
+  try {
+    const property = await sanityClient.fetch(query, { pageSlug })
 
-  if (!property) {
-    return {
-      props: null,
-      notFound: true,
+    if (!property) {
+      return {
+        props: null,
+        notFound: true,
+      }
     }
-  } else {
+
     return {
       props: {
         title: property.title,
@@ -153,6 +155,12 @@ export const getServerSideProps = async (pageContext) => {
         host: property.host,
         reviews: property.reviews,
       },
+    }
+  } catch (error) {
+    console.error('Error fetching property:', error)
+    return {
+      props: null,
+      notFound: true,
     }
   }
 }
