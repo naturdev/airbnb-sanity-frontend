@@ -1,4 +1,5 @@
 import { sanityClient } from "../../sanity"
+import Head from "next/head"
 import { isMultiple } from "../../utils"
 import Image from "../../components/Image"
 import Review from "../../components/Review"
@@ -22,6 +23,14 @@ const Property = ({
 
   return (
     <div className="container">
+      <Head>
+        <title>{title} - Airbnb Clone</title>
+        <meta name="description" content={`${title} - £${pricePerNight} per night. ${bedrooms} bedroom${isMultiple(bedrooms)}, ${beds} bed${isMultiple(beds)}. ${reviewAmount} review${isMultiple(reviewAmount)}.`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="property" />
+      </Head>
       <h1>
         <b>{title}</b>
       </h1>

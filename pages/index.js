@@ -1,5 +1,6 @@
 import { sanityClient, urlFor } from "../sanity"
 import Link from "next/link"
+import Head from "next/head"
 import { isMultiple } from "../utils"
 import DashboardMap from "../components/DashboardMap"
 
@@ -24,6 +25,14 @@ const Home = ({ properties, error }) => {
 
   return (
     <>
+      <Head>
+        <title>Airbnb Clone - Find Your Perfect Stay</title>
+        <meta name="description" content="Discover unique places to stay around the world. Browse properties, read reviews, and book your next adventure." />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content="Airbnb Clone - Find Your Perfect Stay" />
+        <meta property="og:description" content="Discover unique places to stay around the world." />
+        <meta property="og:type" content="website" />
+      </Head>
       <div className="main">
         <div className="feed-container">
           <h1>Places to stay near you</h1>
