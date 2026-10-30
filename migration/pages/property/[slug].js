@@ -1,5 +1,5 @@
 import { sanityClient } from "../../sanity"
-import { isMultiple } from "../../utils"
+import { isMultiple } from "../../../utils"
 import Image from "../../components/Image"
 import Review from "../../components/Review"
 import Map from "../../components/Map"
