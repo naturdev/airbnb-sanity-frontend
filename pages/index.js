@@ -19,8 +19,8 @@ const Home = ({ properties, allProperties, currentPage, totalPages, totalCount }
             </p>
             <div className="feed">
               {properties.map((property) => (
-                <Link href={`property/${property.slug.current}`}>
-                  <div key={property._id} className="card">
+                <Link key={property._id} href={`property/${property.slug.current}`}>
+                  <div className="card">
                     <img src={urlFor(property.mainImage)} />
                     <p>
                       {property.reviews.length} review
