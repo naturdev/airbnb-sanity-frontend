@@ -1,4 +1,5 @@
 import { sanityClient } from "../../sanity"
+import Head from "next/head"
 import { isMultiple } from "../../utils"
 import Image from "../../components/Image"
 import Review from "../../components/Review"
@@ -20,9 +21,16 @@ const Property = ({
 }) => {
   const reviewAmount = reviews.length
 
-  console.log(images)
   return (
     <div className="container">
+      <Head>
+        <title>{title} - Airbnb Clone</title>
+        <meta name="description" content={`${title} - £${pricePerNight} per night. ${bedrooms} bedroom${isMultiple(bedrooms)}, ${beds} bed${isMultiple(beds)}. ${reviewAmount} review${isMultiple(reviewAmount)}.`} />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:type" content="property" />
+      </Head>
       <h1>
         <b>{title}</b>
       </h1>
@@ -30,10 +38,10 @@ const Property = ({
         {reviewAmount} review{isMultiple(reviewAmount)}
       </p>
       <div className="images-section">
-        <Image identifier="main-image" image={mainImage} />
+        <Image identifier="main-image" image={mainImage} alt={title} />
         <div className="sub-images-section">
           {images.map(({ _key, asset }, image) => (
-            <Image key={_key} identifier="image" image={asset} />
+            <Image key={_key} identifier="image" image={asset} alt={`${title} - additional image`} />
           ))}
         </div>
       </div>
@@ -132,14 +140,16 @@ export const getServerSideProps = async (pageContext) => {
     }
   }`
 
-  const property = await sanityClient.fetch(query, { pageSlug })
+  try {
+    const property = await sanityClient.fetch(query, { pageSlug })
 
-  if (!property) {
-    return {
-      props: null,
-      notFound: true,
+    if (!property) {
+      return {
+        props: null,
+        notFound: true,
+      }
     }
-  } else {
+
     return {
       props: {
         title: property.title,
@@ -154,6 +164,12 @@ export const getServerSideProps = async (pageContext) => {
         host: property.host,
         reviews: property.reviews,
       },
+    }
+  } catch (error) {
+    console.error('Error fetching property:', error)
+    return {
+      props: null,
+      notFound: true,
     }
   }
 }
