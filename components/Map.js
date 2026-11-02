@@ -7,14 +7,11 @@ const Map = ({ location }) => {
     googleMapsApiKey: process.env.googlePlacesAPI,
   })
 
-  console.log("location.lat", location.lat)
-  console.log("location.lat", location.lat)
   const containerStyle = {
     width: "100%",
     height: "400px",
   }
 
-  console.log(location.lat)
   const center = {
     lat: location.lat,
     lng: location.lng,
@@ -26,7 +23,7 @@ const Map = ({ location }) => {
     const bounds = new window.google.maps.LatLngBounds()
     map.fitBounds(bounds)
     setMap(map)
-  }, [])
+  }, [location])
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)

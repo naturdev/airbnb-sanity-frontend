@@ -7,8 +7,6 @@ const DashboardMap = ({ properties }) => {
     googleMapsApiKey: process.env.googlePlacesAPI,
   })
 
-  console.log(properties[0].location?.lat)
-  console.log(properties[0].location?.lat)
   const containerStyle = {
     width: "100%",
     height: "100vh",
@@ -25,7 +23,7 @@ const DashboardMap = ({ properties }) => {
     const bounds = new window.google.maps.LatLngBounds()
     map.fitBounds(bounds)
     setMap(map)
-  }, [])
+  }, [properties])
 
   const onUnmount = React.useCallback(function callback(map) {
     setMap(null)
@@ -44,6 +42,7 @@ const DashboardMap = ({ properties }) => {
     >
       {properties.map((property, index) => (
         <Marker
+          key={property._id}
           position={{
             lat: property?.location?.lat,
             lng: property?.location?.lng,
