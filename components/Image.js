@@ -1,11 +1,17 @@
+import Image from "next/image"
 import { urlFor } from "../sanity"
 
-const Image = ({ identifier, image }) => {
+const ImageComponent = ({ identifier, image }) => {
   return (
     <div className={identifier === "main-image" ? "main-image" : "image"}>
-      <img src={urlFor(image).auto("format")} />
+      <Image
+        src={urlFor(image).auto("format").url()}
+        alt={identifier === "main-image" ? "Main property image" : "Property image"}
+        layout="fill"
+        objectFit="cover"
+      />
     </div>
   )
 }
 
-export default Image
+export default ImageComponent

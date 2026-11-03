@@ -69,6 +69,7 @@ body {
   width: 50%;
   overflow: hidden;
   max-height: 540px;
+  position: relative;
 }
 
 .main-image img {
@@ -100,6 +101,14 @@ body {
   padding: 10px;
 }
 
+.card-image {
+  position: relative;
+  width: 250px;
+  height: 200px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
 .card img {
   max-width: 250px;
   border-radius: 20px;
@@ -107,6 +116,7 @@ body {
 
 .image {
   width: 50%;
+  position: relative;
 }
 
 .image img {
@@ -123,4 +133,202 @@ body {
 
 .line {
   border: 1px solid grey;
+}
+
+/* Filter Bar Styles */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: rgb(0 0 0 / 8%) 0 2px 8px;
+  align-items: flex-end;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.filter-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.filter-group input,
+.filter-group select {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: 'Noto Sans JP', sans-serif;
+  min-width: 120px;
+}
+
+.price-inputs {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-inputs input {
+  width: 80px;
+  min-width: 80px;
+}
+
+.price-inputs span {
+  color: #666;
+}
+
+.clear-filters-btn {
+  padding: 8px 16px;
+  background-color: #ff385c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.clear-filters-btn:hover {
+  background-color: #e31c5f;
+}
+
+.no-results {
+  padding: 40px 20px;
+  text-align: center;
+  color: #666;
+  font-size: 16px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+  }
+
+  .feed-container {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+  }
+
+  .map {
+    width: 100%;
+    height: 400px;
+    order: -1; /* Show map first on mobile */
+  }
+
+  .card {
+    width: 100%;
+    padding: 15px 0;
+  }
+
+  .card-image {
+    width: 100%;
+    height: 250px;
+  }
+
+  .card img {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  .filter-group {
+    width: 100%;
+  }
+
+  .filter-group input,
+  .filter-group select {
+    width: 100%;
+    min-width: 100%;
+  }
+
+  .price-inputs {
+    width: 100%;
+  }
+
+  .price-inputs input {
+    flex: 1;
+    width: auto;
+  }
+
+  .clear-filters-btn {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Property detail page mobile styles */
+  .section {
+    flex-direction: column;
+  }
+
+  .information {
+    width: 100%;
+  }
+
+  .price-box {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .images-section {
+    flex-direction: column;
+    max-height: none;
+  }
+
+  .main-image {
+    width: 100%;
+  }
+
+  .sub-images-section {
+    width: 100%;
+  }
+
+  .container {
+    margin: 20px 15px;
+  }
+
+  .nav {
+    padding: 15px;
+  }
+}
+
+/* Tablet Responsive Styles */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .feed-container {
+    width: 50%;
+    padding: 15px;
+  }
+
+  .map {
+    width: 50%;
+  }
+
+  .card img {
+    max-width: 200px;
+  }
+
+  .filter-bar {
+    gap: 10px;
+    padding: 15px;
+  }
+
+  .filter-group input,
+  .filter-group select {
+    min-width: 100px;
+  }
 }
