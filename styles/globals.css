@@ -124,3 +124,94 @@ body {
 .line {
   border: 1px solid grey;
 }
+
+/* Booking form styles */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 40px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-family: 'Noto Sans JP', sans-serif;
+}
+
+.input:focus {
+  outline: none;
+  border-color: rgb(255,56,92);
+}
+
+.error {
+  color: rgb(255,56,92);
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+.confirmation-box {
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: rgb(0 0 0 / 12%) 0 6px 16px;
+  text-align: center;
+}
+
+.confirmation-number {
+  font-size: 18px;
+  color: #666;
+  margin: 20px 0;
+}
+
+.booking-details {
+  margin: 30px 0;
+  text-align: left;
+}
+
+.booking-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.total-price {
+  font-size: 20px;
+  color: rgb(255,56,92);
+  margin-top: 20px;
+}
+
+.booking-summary {
+  background-color: #f8f8f8;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.booking-summary p {
+  margin: 5px 0;
+}
+
+.booking-summary .total {
+  font-size: 18px;
+  font-weight: 700;
+  color: rgb(255,56,92);
+}
+
+.price {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+}

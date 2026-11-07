@@ -4,6 +4,7 @@ import Image from "../../components/Image"
 import Review from "../../components/Review"
 import Map from "../../components/Map"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 const Property = ({
   title,
@@ -18,6 +19,8 @@ const Property = ({
   host,
   reviews,
 }) => {
+  const router = useRouter()
+  const { slug } = router.query
   const reviewAmount = reviews.length
 
   console.log(images)
@@ -76,8 +79,8 @@ const Property = ({
           <h4>
             {reviewAmount} review{isMultiple(reviewAmount)}
           </h4>
-          <Link href="/">
-            <div className="button">Change Dates</div>
+          <Link href={`/property/${slug}/book`}>
+            <div className="button">Book Now</div>
           </Link>
         </div>
       </div>
